@@ -1,4 +1,4 @@
-import PostList from "../../posts/PostsList";
+import PostsList from "../../posts/PostsList";
 import classes from "./styles.module.css";
 
 const FeaturedPosts = ({ posts }) => {
