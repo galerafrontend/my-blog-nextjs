@@ -1,5 +1,12 @@
+import MainNavigation from "./MainNavigation";
+
 const Layout = ({ children }) => {
-  return <main>{children}</main>;
+  return (
+    <>
+      <MainNavigation />
+      <main>{children}</main>
+    </>
+  );
 };
 
 export default Layout;
