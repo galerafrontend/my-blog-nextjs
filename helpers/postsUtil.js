@@ -4,6 +4,10 @@ import path from "path";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
+export const getPostsFiles = () => {
+  return fs.readdirSync(postsDirectory);
+};
+
 export const getPostData = (postIdentifier) => {
   const postSlug = postIdentifier.replace(/\.md$/, "");
   const filePath = path.join(postsDirectory, `${postSlug}.md`);
@@ -20,7 +24,7 @@ export const getPostData = (postIdentifier) => {
 };
 
 export const getAllPosts = () => {
-  const postFiles = fs.readdirSync(postsDirectory);
+  const postFiles = getPostsFiles();
 
   const allPosts = postFiles.map((postFile) => {
     return getPostData(postFile);
