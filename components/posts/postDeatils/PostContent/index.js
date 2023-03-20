@@ -36,7 +36,7 @@ const PostContent = ({ post }) => {
       return (
         <SyntaxHighlighter
           style={atomDark}
-          anguage={language}
+          language={language}
           children={children}
         />
       );
