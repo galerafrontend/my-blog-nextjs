@@ -22,11 +22,27 @@ const ContactForm = () => {
         message: enteredMessage,
       });
       setStatus("success");
+      setEnteredEmail("");
+      setEnteredMessage("");
+      setEnteredName("");
     } catch (error) {
       setRequestError(error.message);
       setStatus("error");
     }
   };
+
+  useEffect(() => {
+    if (status === "succes" || "error") {
+      const timer = setTimeout(() => {
+        setStatus(null);
+        setRequestError(null);
+      }, 3000);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [status]);
 
   let notification;
 
