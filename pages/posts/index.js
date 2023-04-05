@@ -1,8 +1,16 @@
 import Head from "next/head";
 import AllPosts from "../../components/posts/AllPosts";
 import { getAllPosts } from "../../helpers/postsUtil";
+import { useSpinner } from "../../components/ui/useSpinner";
+import LoadingSpinner from "../../components/ui/LoadingSpinner";
 
 const AllPostsPage = ({ posts }) => {
+  const spinner = useSpinner();
+
+  if (spinner) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <>
       <Head>

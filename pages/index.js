@@ -2,8 +2,16 @@ import Head from "next/head";
 import FeaturedPosts from "../components/homepage/FeaturedPosts";
 import Hero from "../components/homepage/Hero";
 import { getFeaturedPosts } from "../helpers/postsUtil";
+import { useSpinner } from "../components/ui/useSpinner";
+import LoadingSpinner from "../components/ui/LoadingSpinner";
 
 const HomePage = ({ posts }) => {
+  const spinner = useSpinner();
+
+  if (spinner) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <>
       <Head>

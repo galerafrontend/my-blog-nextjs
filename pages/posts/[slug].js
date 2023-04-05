@@ -1,8 +1,16 @@
 import Head from "next/head";
 import PostContent from "../../components/posts/postDeatils/PostContent";
 import { getPostData, getPostsFiles } from "../../helpers/postsUtil";
+import { useSpinner } from "../../components/ui/useSpinner";
+import LoadingSpinner from "../../components/ui/LoadingSpinner";
 
 const PostDetailPage = ({ post }) => {
+  const spinner = useSpinner();
+
+  if (spinner) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <>
       <Head>
